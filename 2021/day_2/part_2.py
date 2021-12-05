@@ -1,31 +1,47 @@
-def part_two(directions):
+import re
+# Day 2
+# Horizontal Position and Depth
+# Ishai Masada
 
-    def depth(horizontal_position, aim, value, direction, depth):
-        print(f'direction: {direction}')
-        if direction == 'up':
-            aim += value
-        else:
-            aim -= value
+with open('day_2.txt', 'r') as f:
+    directions = f.read()
 
-    def add_horizontal(horizontal_position, aim, value, direction, depth):
-        horizontal_position += value
-        depth += (aim*value)
+# directions = '''
+# forward 5
+# down 5
+# forward 8
+# up 3
+# down 8
+# forward 2
+# '''
 
-    groups = re.findall(r'(\w+) (\d)', directions)
+def depth():
+    global direction
+    global aim
+    global value
+    if direction == 'up':
+        aim += value
+    else:
+        aim -= value
 
-    commands = {'up': depth, 'forward': add_horizontal, 'down': depth}
-    depth = 0
-    horizontal_position = 0
-    aim = 0
+def add_horizontal():
+    global horizontal_position
+    global value
+    global depth
 
-    for group in groups:
-        direction, value = group[0], int(group[1])
-        print(f'\nhorizontal_position: {horizontal_position}')
-        print(f'depth: {depth}')
-        print(f'aim: {aim}')
-        print(f'direction: {direction}')
-        print(f'value: {value}')
-        commands.get(direction)(horizontal_position, aim, value, direction, depth)
+    horizontal_position += value
+    depth += (aim*value)
 
-    product = abs(depth)*horizontal_position
-    print(product)
+groups = re.findall(r'(\w+) (\d)', directions)
+
+commands = {'up': depth, 'forward': add_horizontal, 'down': depth}
+depth = 0
+horizontal_position = 0
+aim = 0
+
+for group in groups:
+    direction, value = group[0], int(group[1])
+    commands.get(direction)()
+
+product = abs(depth)*horizontal_position
+print(product)
