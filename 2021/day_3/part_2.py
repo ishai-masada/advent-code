@@ -21,7 +21,7 @@ bin_nums = '''
 00010
 01010'''
 
-bin_nums = re.findall(r'(\d+)', bin_nums)
+bin_nums = [num for num in bin_nums.splitlines() if num]
 digits = []
 nums = []
 
@@ -32,33 +32,29 @@ for num in bin_nums:
     for idx, digit in enumerate(digits):
         digit.append(num[idx])
 
-for digit in digits:
+# for count, digit in enumerate(digits):
+#     if len(bin_nums) == 1:
+#         break
+
+#     most_comm = '1' if bin_nums.count('1') >= bin_nums.count('0') else '0'
+
+#     for num in bin_nums:
+#         print(f'{num=}, {count=}')
+#         if num[count] != most_comm:
+#             bin_nums.remove(num)
+
+for count, digit in enumerate(digits):
     if len(bin_nums) == 1:
         break
-    count = 0
 
-    # If the number of 1s and 0s are equal, keep the numbers with a 1 in the current position
-    elif digit.count('1') == digit.count('0'):
-        for idx, num in enumerate(bin_nums):
-            if num[idx-count] != 1:
-                bin_nums.remove(num)
-            count += 1
+    least_comm = '0'# if bin_nums.count('0') > bin_nums.count('1') else '1'
+    print(f'{least_comm=}')
 
-    # If the number of 1s is greater than the number of 0s, keep the numbers with a 1 in
-    # the current position
-    elif digit.count('1') > digit.count('0'):
-        for idx, num in enumerate(bin_nums):
-            if num[idx-count] != 1:
-                bin_nums.remove(num)
-            count += 1
-
-    # If the number of 1s is less than the number of 0s, keep the numbers with a 0 in
-    # the current position
-    elif digit.count('1') < digit.count('0'):
-        for idx, num in enumerate(bin_nums):
-            if num[idx-count] != 0:
-                bin_nums.remove(num)
-            count += 1
+    for num in bin_nums:
+        print(num)
+        if num[count] != least_comm:
+            bin_nums.remove(num)
+    # print(bin_nums)
 
 print(int(bin_nums[0], 2))
 # print(life_supporter_rating)
