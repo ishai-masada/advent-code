@@ -34,7 +34,6 @@ for num in bin_nums:
 
 def o2(digits, bin_nums):
     for idx, digit in enumerate(digits):
-
         if len(bin_nums) == 1:
             break
 
@@ -44,10 +43,14 @@ def o2(digits, bin_nums):
             bin_nums = [num for num in bin_nums if num[idx] == '1']
             digit.remove('0')
 
+        # If the number of 1s is less than the number of 0s, keep the numbers with a 0 in
+        # the current position
         elif digit.count('1') < digit.count('0'):
             bin_nums = [num for num in bin_nums if num[idx] == '0']
             digit.remove('1')
 
+        # If the number of 1s is equal to the number of 0s, keep the numbers with a 1 in
+        # the current position
         elif digit.count('1') == digit.count('0'):
             bin_nums = [num for num in bin_nums if num[idx] == '1']
             digit.remove('0')
@@ -64,14 +67,18 @@ def co2():
         if len(bin_nums) == 1:
             break
 
-        # If the number of 1s is greater than the number of 0s, keep the numbers with a 1 in
+        # If the number of 1s is greater than the number of 0s, keep the numbers with a 0 in
         # the current position
         elif digit.count('1') < digit.count('0'):
             bin_nums = [num for num in bin_nums if num[idx] == '1']
 
+        # If the number of 1s is less than the number of 0s, keep the numbers with a 1 in
+        # the current position
         elif digit.count('1') == digit.count('0'):
             bin_nums = [num for num in bin_nums if num[idx] == '0']
 
+        # If the number of 1s is equal to the number of 0s, keep the numbers with a 1 in
+        # the current position
         elif digit.count('1') > digit.count('0'):
             bin_nums = [num for num in bin_nums if num[idx] == '0']
 
