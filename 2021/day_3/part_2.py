@@ -32,103 +32,57 @@ for num in bin_nums:
     for idx, digit in enumerate(digits):
         digit.append(num[idx])
 
-# O2
-for idx, digit in enumerate(digits):
+def o2(digits, bin_nums):
+    for idx, digit in enumerate(digits):
 
-    if len(bin_nums) == 1:
-        break
+        if len(bin_nums) == 1:
+            break
 
-    # If the number of 1s is greater than the number of 0s, keep the numbers with a 1 in
-    # the current position
-    elif digit.count('1') > digit.count('0'):
-        bin_nums = [num for num in bin_nums if num[idx] == '1']
-        digit.remove('0')
+        # If the number of 1s is greater than the number of 0s, keep the numbers with a 1 in
+        # the current position
+        elif digit.count('1') > digit.count('0'):
+            bin_nums = [num for num in bin_nums if num[idx] == '1']
+            digit.remove('0')
 
-    elif digit.count('1') < digit.count('0'):
-        bin_nums = [num for num in bin_nums if num[idx] == '0']
-        digit.remove('1')
+        elif digit.count('1') < digit.count('0'):
+            bin_nums = [num for num in bin_nums if num[idx] == '0']
+            digit.remove('1')
 
-    elif digit.count('1') == digit.count('0'):
-        bin_nums = [num for num in bin_nums if num[idx] == '1']
-        digit.remove('0')
+        elif digit.count('1') == digit.count('0'):
+            bin_nums = [num for num in bin_nums if num[idx] == '1']
+            digit.remove('0')
 
-    print(digit)
 
-o2 = int(bin_nums[0], 2)
-print(o2)
+    o2 = int(bin_nums[0], 2)
+    print(o2)
+    return o2
 
-# with open('num_list.txt', 'r') as f:
-#     bin_nums = f.read()
 
-# bin_nums = '''
-# 00100
-# 11110
-# 10110
-# 10111
-# 10101
-# 01111
-# 00111
-# 11100
-# 10000
-# 11001
-# 00010
-# 01010'''
+def co2():
+    for idx, digit in enumerate(digits):
 
-# bin_nums = re.findall(r'(\d+)', bin_nums)
-# digits = []
-# nums = []
+        if len(bin_nums) == 1:
+            break
 
-# for _ in range(0, len(bin_nums[0])):
-#     digits.append([])
+        # If the number of 1s is greater than the number of 0s, keep the numbers with a 1 in
+        # the current position
+        elif digit.count('1') < digit.count('0'):
+            bin_nums = [num for num in bin_nums if num[idx] == '1']
 
-# for num in bin_nums:
-#     for idx, digit in enumerate(digits):
-#         digit.append(num[idx])
+        elif digit.count('1') == digit.count('0'):
+            bin_nums = [num for num in bin_nums if num[idx] == '0']
 
-# # # CO2
-# for idx, digit in enumerate(digits):
+        elif digit.count('1') > digit.count('0'):
+            bin_nums = [num for num in bin_nums if num[idx] == '0']
 
-#     if len(bin_nums) == 1:
-#         break
+    co2 = int(bin_nums[0], 2)
+    print(co2)
 
-#     # If the number of 1s is greater than the number of 0s, keep the numbers with a 1 in
-#     # the current position
-#     elif digit.count('1') < digit.count('0'):
-#         bin_nums = [num for num in bin_nums if num[idx] == '1']
+    return co2
 
-#     elif digit.count('1') == digit.count('0'):
-#         bin_nums = [num for num in bin_nums if num[idx] == '0']
+o2(digits, bin_nums)
+# co2(digits, bin_nums)
 
-#     elif digit.count('1') > digit.count('0'):
-#         bin_nums = [num for num in bin_nums if num[idx] == '0']
 
-#     print(bin_nums)
-
-# for count, digit in enumerate(digits):
-#     if len(bin_nums) == 1:
-#         break
-
-#     most_comm = '1' if bin_nums.count('1') >= bin_nums.count('0') else '0'
-
-#     for num in bin_nums:
-#         print(f'{num=}, {count=}')
-#         if num[count] != most_comm:
-#             bin_nums.remove(num)
-
-for count, digit in enumerate(digits):
-    if len(bin_nums) == 1:
-        break
-
-    least_comm = '0'# if bin_nums.count('0') > bin_nums.count('1') else '1'
-    print(f'{least_comm=}')
-
-    for num in bin_nums:
-        print(num)
-        if num[count] != least_comm:
-            bin_nums.remove(num)
-    # print(bin_nums)
-
-# co2 = int(bin_nums[0], 2)
-# print(co2)
 # life_support_rating = co2*o2
 # print(life_support_rating)
