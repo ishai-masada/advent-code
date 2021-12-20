@@ -21,7 +21,7 @@ bin_nums = '''
 00010
 01010'''
 
-bin_nums = re.findall(r'(\d+)', bin_nums)
+bin_nums = [num for num in bin_nums.splitlines() if num]
 digits = []
 nums = []
 
@@ -103,6 +103,30 @@ print(o2)
 #         bin_nums = [num for num in bin_nums if num[idx] == '0']
 
 #     print(bin_nums)
+
+# for count, digit in enumerate(digits):
+#     if len(bin_nums) == 1:
+#         break
+
+#     most_comm = '1' if bin_nums.count('1') >= bin_nums.count('0') else '0'
+
+#     for num in bin_nums:
+#         print(f'{num=}, {count=}')
+#         if num[count] != most_comm:
+#             bin_nums.remove(num)
+
+for count, digit in enumerate(digits):
+    if len(bin_nums) == 1:
+        break
+
+    least_comm = '0'# if bin_nums.count('0') > bin_nums.count('1') else '1'
+    print(f'{least_comm=}')
+
+    for num in bin_nums:
+        print(num)
+        if num[count] != least_comm:
+            bin_nums.remove(num)
+    # print(bin_nums)
 
 # co2 = int(bin_nums[0], 2)
 # print(co2)
