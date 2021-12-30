@@ -49,7 +49,8 @@ def part_one(boards, order):
 
                 # Remove all of the Trues in the board
                 for row_index, row in enumerate(board.rows):
-                    board.rows[row_index] = [elem for elem in row if elem != True]
+                    board.rows[row_index] = [elem for elem in row if elem is not True]
+                print(board.rows)
 
                 # Find the sum of all of the unmarked numbers in the board
                 board_sum = 0
