@@ -2,6 +2,7 @@
 # Submarine Status Repot
 # Ishai Masada
 
+# Next time iterate over bin_nums backwards
 import re
 
 with open('num_list.txt', 'r') as f:
