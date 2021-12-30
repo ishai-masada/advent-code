@@ -61,5 +61,5 @@ def part_one(boards, order):
                 return score
 
 if __name__ == '__main__':
-    order, boards = load_file('sample.txt')
+    order, boards = load_file('input.txt')
     print(part_one(boards, order))
