@@ -47,7 +47,13 @@ def part_two(boards, order):
 
             # Check if the board is finished
             if board.cross(mark) and board not in solved_boards:
+                print(board.rows)
                 solved_boards.append(board)
+
+    # All of the rows are filled with True
+    print('---')
+    for board in solved_boards:
+        print(board.rows)
 
     # Remove all of the Trues in the board
     last_board = solved_boards[-1]
