@@ -50,7 +50,6 @@ def part_one(boards, order):
                 # Remove all of the Trues in the board
                 for row_index, row in enumerate(board.rows):
                     board.rows[row_index] = [elem for elem in row if elem is not True]
-                print(board.rows)
 
                 # Find the sum of all of the unmarked numbers in the board
                 board_sum = 0
@@ -62,5 +61,5 @@ def part_one(boards, order):
                 return score
 
 if __name__ == '__main__':
-    order, boards = load_file('input.txt')
+    order, boards = load_file('sample.txt')
     print(part_one(boards, order))
