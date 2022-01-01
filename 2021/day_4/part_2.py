@@ -46,14 +46,9 @@ def part_two(boards, order):
         for board in boards:
 
             # Check if the board is finished
-            if board.cross(mark) and board not in solved_boards:
-                print(board.rows)
+            if board not in solved_boards and board.cross(mark):
+                last_mark = mark
                 solved_boards.append(board)
-
-    # All of the rows are filled with True
-    print('---')
-    for board in solved_boards:
-        print(board.rows)
 
     # Remove all of the Trues in the board
     last_board = solved_boards[-1]
@@ -66,10 +61,10 @@ def part_two(boards, order):
         board_sum += sum(row)
 
     # Multiply the sum of the unmarked numbers by the number that finished the board
-    score = board_sum * mark
+    score = board_sum * last_mark
     return score
 
 
 if __name__ == '__main__':
-    order, boards = load_file('sample.txt')
+    order, boards = load_file('input.txt')
     print(part_two(boards, order))
