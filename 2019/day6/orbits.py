@@ -13,8 +13,9 @@ K)L
 K)YOU
 I)SAN'''
 
-# with open('input.txt', 'r') as g:
-#     orbits = g.read()
+#with open('input.txt', 'r') as g:
+#    orbits = g.read()
+
 orbits = {body.split(')')[1]: body.split(')')[0] for body in orbits.splitlines() if body}
 
 def part_one(orbits):
@@ -64,7 +65,6 @@ def part_two(orbits):
         if above_orbit != None:
             if find_upwards_path(orbits, end_orbit, above_orbit, current_index) == end_orbit:
                 break
-
 
 
 part_two(orbits)
