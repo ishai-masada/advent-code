@@ -1,0 +1,19 @@
+- Read in the data from the text file
+- Store the data into a dictionary with the keys being the body being orbited and the values being the body that's in orbit
+- Define find_upwards_path function
+    - Try to define the above orbit as the orbit with an index greater than the current index by one
+        - Check if the above orbit is the end orbit
+        - Else: make a recursive call on the function with current_idx + 1
+    - Except if there is an IndexError
+        - return None object
+    
+- Define start orbit
+- Define end orbit
+- Make a list of the bodies that are being orbited
+- Make a list of the bodies that are in orbit
+- Infinite Loop
+    - Check if the start orbit (variable) is equal to the end orbit or equal to the COM body
+    - "Update the current body for each transfer
+    - Find the index of the current body in the list of bodies orbiting the keys
+    - Check if the current body is in the highest orbit
+        - Check if the output from the find_upwards_path function is equal to the end orbit
